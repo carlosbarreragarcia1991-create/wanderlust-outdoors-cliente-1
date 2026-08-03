@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Gracias! — Wanderlust Outdoors</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20260803">
+
+<!-- GTM, Meta Pixel y TikTok Pixel: MISMO bloque base que en index.html -->
+<!-- INICIO: Google Tag Manager --><!-- (igual que en index.html) --><!-- FIN: Google Tag Manager -->
+<!-- INICIO: Meta Pixel Code --><!-- (igual que en index.html) --><!-- FIN: Meta Pixel Code -->
+<!-- INICIO: TikTok Pixel Code --><!-- (igual que en index.html) --><!-- FIN: TikTok Pixel Code -->
+
+</head>
+<body>
+<!-- GTM noscript: mismo bloque que en index.html, justo aquí -->
+<!-- INICIO: Google Tag Manager (noscript) --><!-- FIN: Google Tag Manager (noscript) -->
+
+<header class="site-header solido">
+  <div class="container">
+    <a href="index.html" class="logo">Wanderlust <span>Outdoors</span></a>
+    <nav><ul class="nav-links"></ul></nav>
+    <div class="nav-cta"></div>
+  </div>
+</header>
+
+<section class="pagina-interna-hero">
+  <div class="container">
+    <span class="eyebrow">Paso 3 de 3</span>
+    <h1>¡Pedido confirmado!</h1>
+    <p>Esta es la página clave: aquí es donde se disparan las conversiones.</p>
+    <div class="pasos-funnel">
+      <span class="paso completado">✓ Registro</span>
+      <span class="paso completado">✓ Pago</span>
+      <span class="paso activo">3. Confirmación</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="gracias-box reveal visible">
+    <div class="check-icono">✓</div>
+    <h2>Gracias, <span id="gracias-nombre">aventurero/a</span></h2>
+    <p>Tu pedido se ha confirmado correctamente. Te hemos enviado los detalles por correo electrónico.</p>
+
+    <div class="gracias-detalle">
+      <div><span>Artículo</span><span id="gracias-item">—</span></div>
+      <div><span>Importe</span><span id="gracias-valor">0,00 €</span></div>
+      <div><span>Nº de pedido</span><span id="gracias-id">—</span></div>
+    </div>
+
+    <a href="index.html" class="btn btn-oscuro btn-full">Volver al inicio</a>
+  </div>
+</div>
+
+<footer class="site-footer" style="margin-top:80px;">
+  <div class="container footer-bottom">
+    <span>© 2026 Wanderlust Outdoors.</span>
+    <span>Sitio de demostración con fines formativos.</span>
+  </div>
+</footer>
+
+<script src="js/script.js?v=20260803"></script>
+<script>
+  // Rellena el resumen en pantalla Y dispara dataLayer.push({event:'purchase', ...})
+  // (la función inicializarGracias() vive en js/script.js)
+  inicializarGracias();
+</script>
+
+<!-- ======================================================================
+     ¡¡¡ ESTA ES LA PÁGINA MÁS IMPORTANTE PARA TUS ANUNCIOS !!!
+     Aquí es donde confirmas la conversión real (compra o reserva).
+     Tienes DOS formas de hacerlo — usa solo UNA para no contar doble:
+
+     OPCIÓN A (recomendada): todo vía Google Tag Manager.
+     No añadas nada más aquí. El evento "purchase" ya se envía al
+     dataLayer desde js/script.js (función inicializarGracias). Dentro de
+     GTM, configura un Trigger que escuche el evento personalizado
+     "purchase" y dispara desde ahí:
+        - Tag de conversión de Google Ads
+        - Tag de evento "purchase" de GA4
+        - Tag de Meta Pixel con evento estándar "Purchase"
+        - Tag de TikTok Pixel con evento estándar "CompletePayment"
+
+     OPCIÓN B: código directo de cada plataforma, sin GTM.
+     Descomenta y rellena los IDs de cada bloque de abajo.
+     ====================================================================== -->
+
+<!-- INICIO: Google Ads — Etiqueta de conversión (solo si NO usas GTM) -->
+<!--
+<script>
+  gtag('event', 'conversion', {
+    'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXXXXXXXX',
+    'value': 1.0,
+    'currency': 'EUR',
+    'transaction_id': ''
+  });
+</script>
+-->
+<!-- FIN: Google Ads -->
+
+<!-- INICIO: GA4 — Evento "purchase" directo (solo si NO usas GTM) -->
+<!--
+<script>
+  gtag('event', 'purchase', {
+    transaction_id: 'ID_DEL_PEDIDO',
+    value: 0.00,
+    currency: 'EUR',
+    items: []
+  });
+</script>
+-->
+<!-- FIN: GA4 -->
+
+<!-- INICIO: Meta Pixel — Evento "Purchase" (solo si NO usas GTM) -->
+<!--
+<script>
+  fbq('track', 'Purchase', {value: 0.00, currency: 'EUR'});
+</script>
+-->
+<!-- FIN: Meta Pixel -->
+
+<!-- INICIO: TikTok Pixel — Evento "CompletePayment" (solo si NO usas GTM) -->
+<!--
+<script>
+  ttq.track('CompletePayment', {value: 0.00, currency: 'EUR'});
+</script>
+-->
+<!-- FIN: TikTok Pixel -->
+
+</body>
+</html>
