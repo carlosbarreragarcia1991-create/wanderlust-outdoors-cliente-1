@@ -396,3 +396,12 @@ section { padding: 120px 0; position: relative; }
   .campo-doble { grid-template-columns: 1fr; }
   section { padding: 76px 0; }
 }
+/* Desactiva la posición absoluta que monta el texto */
+.scroll-cue {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin-top: 40px !important; /* Añade un espacio limpio de 40px debajo de los botones */
+    display: block !important;
+    text-align: center !important;
