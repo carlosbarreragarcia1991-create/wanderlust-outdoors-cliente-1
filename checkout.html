@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finalizar pago — Wanderlust Outdoors</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20260803">
+
+<!-- GTM, Meta Pixel y TikTok Pixel: MISMO bloque que en index.html, pégalo aquí también -->
+<!-- INICIO: Google Tag Manager --><!-- (igual que en index.html) --><!-- FIN: Google Tag Manager -->
+<!-- INICIO: Meta Pixel Code --><!-- (igual que en index.html) --><!-- FIN: Meta Pixel Code -->
+<!-- INICIO: TikTok Pixel Code --><!-- (igual que en index.html) --><!-- FIN: TikTok Pixel Code -->
+
+</head>
+<body>
+<!-- GTM noscript: mismo bloque que en index.html, justo aquí -->
+<!-- INICIO: Google Tag Manager (noscript) --><!-- FIN: Google Tag Manager (noscript) -->
+
+<header class="site-header solido">
+  <div class="container">
+    <a href="index.html" class="logo">Wanderlust <span>Outdoors</span></a>
+    <nav><ul class="nav-links"></ul></nav>
+    <div class="nav-cta"></div>
+  </div>
+</header>
+
+<section class="pagina-interna-hero"><div class="topo-textura"></div>
+  <div class="container">
+    <span class="coord">Formulario 02 / confirmación de pago</span>
+    <h1>Finaliza tu pago</h1>
+    <p>Introduce tus datos de pago para confirmar tu pedido.</p>
+    <div class="pasos-funnel">
+      <span class="paso completado">✓ Registro</span>
+      <span class="paso activo">2. Pago</span>
+      <span class="paso">3. Confirmación</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="checkout-layout">
+
+    <div class="checkout-form reveal visible">
+      <h2>Datos de la tarjeta</h2>
+
+      <div class="aviso-demo">
+        ⚠️ <span>Esto es una simulación de pago con fines de demostración. No se procesa ningún cargo real ni se guardan datos de tarjeta.</span>
+      </div>
+
+      <div class="tarjeta-visual">
+        <span style="font-size:0.75rem; letter-spacing:0.1em;">WANDERLUST CARD</span>
+        <div class="tarjeta-numero" id="preview-numero">•••• •••• •••• ••••</div>
+        <div class="tarjeta-meta">
+          <span id="preview-nombre">NOMBRE APELLIDOS</span>
+          <span id="preview-caducidad">MM/AA</span>
+        </div>
+      </div>
+
+      <form id="formulario-checkout" onsubmit="manejarCheckout(event)">
+        <div class="campo">
+          <label for="titular">Nombre del titular</label>
+          <input type="text" id="titular" name="titular" placeholder="Como aparece en la tarjeta" required>
+        </div>
+        <div class="campo">
+          <label for="numero_tarjeta">Número de tarjeta</label>
+          <input type="text" id="numero_tarjeta" name="numero_tarjeta" placeholder="4242 4242 4242 4242" maxlength="19" required>
+        </div>
+        <div class="campo-doble">
+          <div class="campo">
+            <label for="caducidad">Caducidad</label>
+            <input type="text" id="caducidad" name="caducidad" placeholder="MM/AA" maxlength="5" required>
+          </div>
+          <div class="campo">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primario btn-full">Confirmar y pagar</button>
+        <p class="nota-segura">🔒 Pago simulado — entorno de pruebas</p>
+      </form>
+    </div>
+
+    <aside class="resumen-pedido reveal visible">
+      <h3>Resumen del pedido</h3>
+      <div class="resumen-item">
+        <span>Artículo</span>
+        <span id="resumen-item">—</span>
+      </div>
+      <div class="resumen-item">
+        <span>Tipo</span>
+        <span id="resumen-tipo">—</span>
+      </div>
+      <div class="resumen-item">
+        <span>Gastos de gestión</span>
+        <span>0,00 €</span>
+      </div>
+      <div class="resumen-total">
+        <span>Total</span>
+        <strong id="resumen-total">0,00 €</strong>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer class="site-footer" style="margin-top:80px;">
+  <div class="container footer-bottom">
+    <span>© 2026 Wanderlust Outdoors.</span>
+    <span>Sitio de demostración con fines formativos.</span>
+  </div>
+</footer>
+
+<script src="js/script.js?v=20260803"></script>
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const item = params.get("item") || "Pedido Wanderlust Outdoors";
+    const tipo = params.get("tipo") || "producto";
+    const valor = parseFloat(params.get("valor") || "0");
+
+    document.getElementById("resumen-item").textContent = item;
+    document.getElementById("resumen-tipo").textContent = tipo === "expedicion" ? "Reserva de expedición" : "Producto de tienda";
+    document.getElementById("resumen-total").textContent = valor.toFixed(2) + " €";
+
+    // Vista previa visual de la tarjeta (solo estética, no valida nada real)
+    const numero = document.getElementById("numero_tarjeta");
+    const titular = document.getElementById("titular");
+    const caducidad = document.getElementById("caducidad");
+    numero.addEventListener("input", function () {
+      const val = numero.value.replace(/\D/g, "").padEnd(16, "•").match(/.{1,4}/g).join(" ");
+      document.getElementById("preview-numero").textContent = val;
+    });
+    titular.addEventListener("input", function () {
+      document.getElementById("preview-nombre").textContent = titular.value.toUpperCase() || "NOMBRE APELLIDOS";
+    });
+    caducidad.addEventListener("input", function () {
+      document.getElementById("preview-caducidad").textContent = caducidad.value || "MM/AA";
+    });
+  })();
+</script>
+</body>
+</html>
