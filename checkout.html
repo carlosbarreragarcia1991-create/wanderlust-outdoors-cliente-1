@@ -127,18 +127,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="script.js?v=20260803"></script>
   <script>
-  (function () {
-    // Leer los datos que vienen en la URL
-    const params = new URLSearchParams(window.location.search);
-    const item = params.get("item");
-    const valor = params.get("valor");
-    const tipo = params.get("tipo");
+(function () {
+  // 1. Leer los datos que vienen en la URL
+  const params = new URLSearchParams(window.location.search);
+  const item = params.get("item");
+  const valor = params.get("valor");
+  const tipo = params.get("tipo");
 
-    // Si existen los parámetros, meterlos en los textos del resumen
-    if (item) document.querySelector(".resumen-pedido p:nth-of-type(1)").innerHTML = `<strong>Artículo:</strong> ${decodeURIComponent(item)}`;
-    if (tipo) document.querySelector(".resumen-pedido p:nth-of-type(2)").innerHTML = `<strong>Tipo:</strong> ${decodeURIComponent(tipo)}`;
-    if (valor) document.querySelector(".resumen-pedido .total strong").textContent = `${valor},00 €`;
-  })();
+  // Convertimos el valor de texto a NÚMERO puro para GA4
+  const valorNumerico = parseFloat(valor) || 0;
+
+  // 2. Pintar en la pantalla (solo si los elementos HTML existen)
+  if (item) {
+    const elItem = document.querySelector(".resumen-pedido p:nth-of-type(1)");
+    if (elItem) elItem.innerHTML = `<strong>Artículo:</strong> ${decodeURIComponent(item)}`;
+  }
+  
+  if (tipo) {
+    const elTipo = document.querySelector(".resumen-pedido p:nth-of-type(2)");
+    if (elTipo) elTipo.innerHTML = `<strong>Tipo:</strong> ${decodeURIComponent(tipo)}`;
+  }
+
+  if (valor) {
+    const elValor = document.querySelector(".resumen-pedido .total strong");
+    if (elValor) elValor.textContent = `${valor},00 €`;
+  }
+
+  // 3. Enviar el evento de compra a la capa de datos (Data Layer) para GA4
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'purchase',
+    ecommerce: {
+      transaction_id: 'WO-' + Math.floor(Math.random() * 100000), // ID aleatorio ficticio
+      value: valorNumerico,                                       // NÚMERO sin comillas ni €
+      currency: 'EUR',                                            // Moneda ISO obligatoria
+      items: [{
+        item_name: item ? decodeURIComponent(item) : 'Reserva',
+        price: valorNumerico,
+        quantity: 1
+      }]
+    }
+  });
+})();
 </script>
 
 <script>
