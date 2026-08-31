@@ -1,44 +1,378 @@
 <!DOCTYPE html>
 <html lang="es">
+
+   window.dataLayer = window.dataLayer || [];
+   
 <head>
+   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K66V9N3M');</script>
+  <!-- End Google Tag Manager -->
+
+   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K66V9N3M"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wanderlust Outdoors — Expediciones de aventura y equipo técnico de montaña</title>
-<meta name="description" content="Diseñamos y guiamos expediciones de aventura en grupo por los rincones más salvajes del planeta, y equipamos tu viaje con material técnico probado en condiciones extremas.">
+<title>Smash Padel Club — Clases de pádel y tienda técnica</title>
+<meta name="description" content="Clases de pádel para todos los niveles con entrenadores certificados, y tienda técnica con el material que usan nuestros propios profesores en pista.">
 
-<!-- ======================================================================
-     GOOGLE SEARCH CONSOLE — Verificación de propiedad
-     Sustituye el contenido por el código que te da Search Console
-     (Configuración > Verificación de propiedad > Etiqueta HTML).
-     Solo hace falta en esta página (la home).
-     ====================================================================== -->
 <meta name="google-site-verification" content="TU_CODIGO_DE_SEARCH_CONSOLE_AQUI" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260803">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<style>
+/* ==========================================================================
+   SMASH PADEL CLUB — style.css
+   Dirección: "marcador electrónico de pista nocturna".
+   Azul cancha + lima neón sobre negro-azulado. Tipografía de cartel
+   deportivo (Oswald) + marcador digital (Rajdhani) + texto (Inter).
+   Firma visual: líneas de pista (dobles, blancas) y marcador tipo LED.
+   ========================================================================== */
 
-<!-- Google Tag Manager -->
+:root {
+  --tinta: #0a1420;
+  --tinta-suave: #101d2d;
+  --azul: #123a5c;
+  --azul-vivo: #1f7fc9;
+  --lima: #d6f83c;
+  --lima-oscuro: #a8c62a;
+  --coral: #ff5c4d;
+  --blanco: #f4f7f5;
+  --gris: #8892a0;
+  --gris-claro: #cdd3da;
+
+  --fuente-titular: "Oswald", "Arial Narrow", sans-serif;
+  --fuente-score: "Rajdhani", "Arial Narrow", sans-serif;
+  --fuente-cuerpo: "Inter", -apple-system, Segoe UI, sans-serif;
+
+  --radio: 3px;
+  --transicion: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--fuente-cuerpo); background: var(--blanco); color: var(--tinta); line-height: 1.6; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--fuente-titular);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.02;
+  color: var(--tinta);
+}
+
+.container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Etiqueta "marcador" ---------- */
+.marcador-label {
+  font-family: var(--fuente-score);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lima-oscuro);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.marcador-label::before { content: "●"; font-size: 0.55rem; color: var(--coral); }
+.section-oscura .marcador-label, .hero .marcador-label { color: var(--lima); }
+.section-oscura .marcador-label::before, .hero .marcador-label::before { color: var(--lima); }
+
+/* ---------- Líneas de pista (marco decorativo) ---------- */
+.lineas-pista { position: relative; }
+.lineas-pista::before {
+  content: ""; position: absolute; inset: 10px;
+  border: 1.5px solid rgba(244,247,245,0.55);
+  pointer-events: none; z-index: 2;
+}
+.lineas-pista::after {
+  content: ""; position: absolute; inset: 10px 10px 10px 50%;
+  border-left: 1.5px solid rgba(244,247,245,0.55);
+  pointer-events: none; z-index: 2;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 32px; border-radius: var(--radio);
+  font-family: var(--fuente-score); font-weight: 700; font-size: 0.95rem;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  border: 2px solid transparent; cursor: pointer;
+  transition: transform var(--transicion), box-shadow var(--transicion), background var(--transicion);
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primario { background: var(--lima); color: var(--tinta); }
+.btn-primario:hover { background: var(--lima-oscuro); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(214,248,60,0.3); }
+
+.btn-secundario { background: transparent; border-color: rgba(244,247,245,0.5); color: var(--blanco); }
+.btn-secundario:hover { background: rgba(244,247,245,0.1); border-color: var(--blanco); }
+
+.btn-oscuro { background: var(--tinta); color: var(--lima); }
+.btn-oscuro:hover { background: #000; transform: translateY(-2px); }
+
+.btn-full { width: 100%; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 0; background: var(--tinta);
+  border-bottom: 1px solid rgba(214,248,60,0.15);
+}
+.site-header .container { display: flex; align-items: center; justify-content: space-between; }
+.logo {
+  font-family: var(--fuente-titular); font-size: 1.5rem; text-transform: uppercase;
+  color: var(--blanco); letter-spacing: 0.02em; font-weight: 600;
+}
+.logo span { color: var(--lima); }
+
+.nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+.nav-links a {
+  position: relative; color: var(--gris-claro);
+  font-family: var(--fuente-score); font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  transition: color var(--transicion);
+}
+.nav-links a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--lima); transition: width var(--transicion); }
+.nav-links a:hover { color: var(--blanco); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta { display: flex; align-items: center; gap: 20px; }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; }
+.menu-toggle span { display: block; width: 24px; height: 2px; background: var(--blanco); margin: 5px 0; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 90px; color: var(--blanco); isolation: isolate; }
+.hero-bg {
+  position: absolute; inset: 0; background-color: var(--tinta);
+  background-image: linear-gradient(0deg, rgba(10,20,32,0.4), rgba(10,20,32,0.2)), url("https://images.unsplash.com/photo-1646651105426-e8c8ee9badde?auto=format&fit=crop&w=1800&q=80");
+  background-size: cover; background-position: center; z-index: -2;
+}
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(10,20,32,0.97) 15%, rgba(10,20,32,0.75) 50%, rgba(18,58,92,0.55) 100%); z-index: -1; }
+.hero-content { max-width: 600px; }
+.hero-content h1 { font-size: clamp(2.6rem, 5.6vw, 4.4rem); color: var(--blanco); margin-bottom: 22px; }
+.hero-content h1 em { font-style: normal; color: var(--lima); }
+.hero-content p { font-size: 1.1rem; color: var(--gris-claro); margin-bottom: 34px; max-width: 480px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Tarjeta "marcador electrónico" flotante */
+.scoreboard-flotante {
+  position: absolute; top: 130px; right: 40px; z-index: 3;
+  background: var(--tinta); border: 1px solid rgba(214,248,60,0.4);
+  padding: 22px 24px; width: 220px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.scoreboard-flotante .marcador-label { margin-bottom: 12px; }
+.scoreboard-flotante ul { list-style: none; font-family: var(--fuente-score); font-size: 0.9rem; }
+.scoreboard-flotante li { display: flex; justify-content: space-between; padding: 7px 0; border-top: 1px solid rgba(244,247,245,0.1); color: var(--gris-claro); }
+.scoreboard-flotante li:first-child { border-top: none; }
+.scoreboard-flotante li strong { color: var(--lima); font-size: 1.05rem; }
+
+/* ---------- Banda de estadísticas (marcador) ---------- */
+.stats-banda { background: var(--tinta); padding: 50px 0; border-top: 1px solid rgba(214,248,60,0.15); border-bottom: 1px solid rgba(214,248,60,0.15); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+.stats-grid div { border-left: 1px solid rgba(244,247,245,0.12); padding: 0 10px; }
+.stats-grid div:first-child { border-left: none; }
+.stats-grid strong { display: block; font-family: var(--fuente-score); font-size: clamp(2rem, 4vw, 2.8rem); color: var(--lima); font-weight: 700; }
+.stats-grid span { font-family: var(--fuente-score); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris-claro); }
+
+/* ---------- Secciones ---------- */
+section { padding: 110px 0; position: relative; }
+.section-cabecera { max-width: 600px; margin-bottom: 60px; }
+.section-cabecera h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); }
+.section-cabecera p { color: var(--gris); font-size: 1.03rem; margin-top: 16px; }
+
+.section-oscura { background: var(--tinta); color: var(--blanco); }
+.section-oscura h2, .section-oscura h3 { color: var(--blanco); }
+.section-oscura p { color: var(--gris-claro); }
+.section-oscura .section-cabecera p { color: var(--gris-claro); }
+
+/* ---------- Beneficios ---------- */
+.beneficios-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.beneficio-card {
+  background: var(--blanco); border-left: 4px solid var(--lima);
+  box-shadow: 0 6px 22px rgba(10,20,32,0.08);
+  padding: 32px 24px; transition: transform var(--transicion);
+}
+.beneficio-card:hover { transform: translateY(-6px); }
+.beneficio-icono { font-size: 1.6rem; margin-bottom: 18px; display: block; }
+.beneficio-card h3 { font-family: var(--fuente-cuerpo); font-weight: 700; text-transform: none; font-size: 1.05rem; margin-bottom: 10px; letter-spacing: 0; }
+.beneficio-card p { color: var(--gris); font-size: 0.92rem; }
+
+/* ---------- Sobre nosotros ---------- */
+.sobre { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 70px; align-items: center; }
+.sobre-img { position: relative; aspect-ratio: 4/3; background-color: var(--azul); overflow: hidden; }
+.sobre-img img { width: 100%; height: 100%; object-fit: cover; }
+.sobre-texto p { color: var(--gris-claro); margin-top: 18px; font-size: 1.02rem; }
+.section-oscura .sobre-texto p { color: var(--gris-claro); }
+.sobre-texto p { color: var(--gris); }
+.section-oscura .sobre-texto p { color: var(--gris-claro); }
+
+/* ---------- Clases (lead gen) ---------- */
+.clases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.clase-card { position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; background-color: var(--azul); }
+.clase-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.clase-card:hover img { transform: scale(1.08); }
+.clase-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(10,20,32,0.96) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; color: var(--blanco); }
+.nivel-badge {
+  display: inline-block; align-self: flex-start;
+  background: var(--lima); color: var(--tinta);
+  font-family: var(--fuente-score); font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 5px 12px; margin-bottom: 12px;
+}
+.clase-overlay h3 { color: var(--blanco); font-size: 1.35rem; }
+.clase-overlay p { font-size: 0.85rem; color: var(--gris-claro); margin-top: 6px; font-family: var(--fuente-score); }
+
+/* ---------- Tienda ---------- */
+.tienda-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.producto-card { background: var(--blanco); border: 1px solid #e4e6e8; overflow: hidden; transition: transform var(--transicion), box-shadow var(--transicion); display: flex; flex-direction: column; position: relative; }
+.producto-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(10,20,32,0.12); }
+.producto-img { aspect-ratio: 1/1; overflow: hidden; background-color: var(--tinta); position: relative; }
+.producto-img img { width: 100%; height: 100%; object-fit: cover; }
+.producto-tag {
+  position: absolute; top: 12px; left: 0;
+  background: var(--coral); color: var(--blanco);
+  font-family: var(--fuente-score); font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 5px 12px 5px 10px;
+}
+.producto-info { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.producto-info .marcador-label { margin-bottom: 6px; font-size: 0.7rem; }
+.producto-info h3 { font-family: var(--fuente-cuerpo); font-weight: 700; text-transform: none; font-size: 0.98rem; margin-bottom: 8px; letter-spacing: 0; color: var(--tinta); }
+.producto-precio { margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px dashed #d8dade; }
+.producto-precio strong { font-family: var(--fuente-score); font-size: 1.25rem; color: var(--azul-vivo); }
+.producto-precio .btn { padding: 10px 16px; font-size: 0.75rem; }
+
+/* ---------- CTA banda final ---------- */
+.cta-banda { background: linear-gradient(120deg, var(--azul) 0%, var(--azul-vivo) 100%); color: var(--blanco); text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
+.cta-banda h2 { color: var(--blanco); margin-bottom: 20px; }
+.cta-banda p { color: rgba(244,247,245,0.85); max-width: 500px; margin: 0 auto 34px; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--tinta); color: var(--gris-claro); padding: 60px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(244,247,245,0.1); }
+.footer-grid h4 { font-family: var(--fuente-score); text-transform: uppercase; letter-spacing: 0.08em; color: var(--lima); font-size: 0.8rem; margin-bottom: 16px; }
+.footer-grid ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
+.footer-grid a:hover { color: var(--blanco); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; font-size: 0.8rem; flex-wrap: wrap; gap: 12px; }
+
+/* ==========================================================================
+   PÁGINAS INTERNAS
+   ========================================================================== */
+.pagina-interna-hero { padding: 160px 0 60px; background: var(--tinta); color: var(--blanco); text-align: center; }
+.pagina-interna-hero .marcador-label { justify-content: center; }
+.pagina-interna-hero h1 { color: var(--blanco); font-size: clamp(2rem, 4.2vw, 2.8rem); }
+.pagina-interna-hero p { color: var(--gris-claro); margin-top: 12px; }
+
+.pasos-funnel { display: flex; justify-content: center; gap: 8px; margin-top: 28px; flex-wrap: wrap; }
+.paso {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--fuente-score); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--gris-claro); padding: 8px 16px; border: 1px solid rgba(244,247,245,0.2);
+}
+.paso.activo { color: var(--tinta); background: var(--lima); border-color: var(--lima); font-weight: 700; }
+.paso.completado { color: var(--lima); border-color: rgba(214,248,60,0.4); }
+
+.form-wrap { max-width: 560px; margin: -40px auto 0; background: var(--blanco); box-shadow: 0 20px 50px rgba(10,20,32,0.25); padding: 46px; position: relative; z-index: 2; border-top: 4px solid var(--lima); }
+.form-wrap h2 { font-size: 1.5rem; margin-bottom: 8px; }
+.form-wrap > p { color: var(--gris); margin-bottom: 30px; font-size: 0.95rem; }
+
+.campo { margin-bottom: 20px; }
+.campo label { display: block; font-family: var(--fuente-score); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin-bottom: 8px; color: var(--tinta); }
+.campo input, .campo select {
+  width: 100%; padding: 13px 15px; border: 1.5px solid #d8dade; border-radius: var(--radio);
+  font-family: var(--fuente-cuerpo); font-size: 0.95rem; background: #f7f8f7;
+  transition: border-color var(--transicion);
+}
+.campo input:focus, .campo select:focus { outline: none; border-color: var(--azul-vivo); }
+.campo-doble { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.checkbox-linea { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 26px; }
+.checkbox-linea input { width: auto; margin-top: 4px; }
+.checkbox-linea label { font-size: 0.85rem; color: var(--gris); font-weight: 400; font-family: var(--fuente-cuerpo); text-transform: none; }
+
+.nota-segura { display: flex; align-items: center; gap: 8px; font-family: var(--fuente-score); font-size: 0.75rem; color: var(--gris); margin-top: 18px; justify-content: center; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Checkout */
+.checkout-layout { display: grid; grid-template-columns: 1fr 380px; gap: 2px; max-width: 980px; margin: -40px auto 0; position: relative; z-index: 2; box-shadow: 0 20px 50px rgba(10,20,32,0.25); }
+.resumen-pedido { background: var(--tinta); color: var(--blanco); padding: 36px; height: fit-content; border-top: 4px solid var(--lima); }
+.resumen-pedido h3 { color: var(--blanco); font-size: 1rem; margin-bottom: 22px; font-family: var(--fuente-score); text-transform: uppercase; letter-spacing: 0.06em; }
+.resumen-item { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px dashed rgba(244,247,245,0.15); font-size: 0.9rem; font-family: var(--fuente-score); }
+.resumen-item span:first-child { color: var(--gris-claro); }
+.resumen-total { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 6px; font-family: var(--fuente-titular); text-transform: uppercase; }
+.resumen-total strong { font-size: 1.7rem; color: var(--lima); font-family: var(--fuente-score); }
+
+.checkout-form { background: var(--blanco); padding: 42px; border-top: 4px solid var(--azul-vivo); }
+.checkout-form h2 { font-size: 1.35rem; margin-bottom: 26px; }
+
+.tarjeta-visual { background: var(--tinta); color: var(--blanco); padding: 26px; margin-bottom: 28px; font-family: var(--fuente-score); position: relative; overflow: hidden; border-left: 4px solid var(--lima); }
+.tarjeta-numero { font-size: 1.2rem; letter-spacing: 0.12em; margin: 22px 0 16px; }
+.tarjeta-meta { display: flex; justify-content: space-between; font-size: 0.75rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.aviso-demo { background: #fff4e0; border-left: 4px solid var(--coral); color: #8a4a1e; padding: 13px 16px; font-size: 0.82rem; margin-bottom: 24px; display: flex; gap: 10px; align-items: flex-start; }
+
+/* Gracias */
+.gracias-box { max-width: 620px; margin: -40px auto 0; background: var(--blanco); box-shadow: 0 20px 50px rgba(10,20,32,0.25); padding: 64px 50px; text-align: center; position: relative; z-index: 2; border-top: 4px solid var(--lima); }
+.check-icono { width: 74px; height: 74px; background: var(--tinta); color: var(--lima); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 24px; font-family: var(--fuente-score); }
+.gracias-box h2 { font-size: 1.8rem; margin-bottom: 12px; }
+.gracias-box > p { color: var(--gris); margin-bottom: 30px; }
+.gracias-detalle { background: #f7f8f7; border: 1px dashed #d8dade; padding: 24px; text-align: left; margin-bottom: 30px; font-family: var(--fuente-score); font-size: 0.9rem; }
+.gracias-detalle div { display: flex; justify-content: space-between; padding: 7px 0; }
+.gracias-detalle div span:first-child { color: var(--gris); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
+  .clases-grid { grid-template-columns: 1fr; }
+  .tienda-grid { grid-template-columns: repeat(2, 1fr); }
+  .sobre { grid-template-columns: 1fr; gap: 36px; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .checkout-layout { grid-template-columns: 1fr; }
+  .scoreboard-flotante { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 26px; }
+  .stats-grid div:nth-child(3) { border-left: none; }
+}
+@media (max-width: 680px) {
+  .nav-links, .nav-cta .btn-secundario { display: none; }
+  .menu-toggle { display: block; }
+  .beneficios-grid, .tienda-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .form-wrap, .checkout-form, .gracias-box { padding: 30px 22px; }
+  .campo-doble { grid-template-columns: 1fr; }
+  section { padding: 72px 0; }
+}
+
+</style>
+
+<!-- INICIO: Google Tag Manager -->
+<!--
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NR5W39VM');</script>
-<!-- End Google Tag Manager -->
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+<!-- FIN: Google Tag Manager -->
 
-<!-- ======================================================================
-     META PIXEL — Código base (HEAD)
-     Solo necesario si NO vas a gestionar Meta a través de GTM.
-     Si usas GTM, configura el Pixel como plantilla dentro de GTM en su
-     lugar y deja esto comentado para no duplicar el tracking.
-     ====================================================================== -->
 <!-- INICIO: Meta Pixel Code -->
 <!--
 <script>
-!function(f,b,e,v,n,t,s){...}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+!function(f,b,e,v,n,t,s){...}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', 'TU_PIXEL_ID');
 fbq('track', 'PageView');
 </script>
@@ -47,10 +381,6 @@ src="https://www.facebook.com/tr?id=TU_PIXEL_ID&ev=PageView&noscript=1"/></noscr
 -->
 <!-- FIN: Meta Pixel Code -->
 
-<!-- ======================================================================
-     TIKTOK PIXEL — Código base (HEAD)
-     Igual que Meta: solo si NO usas GTM para gestionarlo.
-     ====================================================================== -->
 <!-- INICIO: TikTok Pixel Code -->
 <!--
 <script>
@@ -64,55 +394,62 @@ ttq.page();
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K66V9N3M"
+<!-- INICIO: Google Tag Manager (noscript) -->
+<!--
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+-->
+<!-- FIN: Google Tag Manager (noscript) -->
 
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="logo">Wanderlust <span>Outdoors</span></a>
+    <a href="index.html" class="logo">Smash <span>Padel Club</span></a>
     <nav>
       <ul class="nav-links">
         <li><a href="#beneficios">Por qué nosotros</a></li>
-        <li><a href="#destinos">Expediciones</a></li>
+        <li><a href="#clases">Clases</a></li>
         <li><a href="#tienda">Tienda</a></li>
         <li><a href="#sobre">Sobre nosotros</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a href="registro.html" class="btn btn-secundario">Reserva tu aventura</a>
+      <a href="registro.html" class="btn btn-secundario">Reserva tu clase</a>
     </div>
     <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- ============ HERO / PRESENTACIÓN DEL PRODUCTO ============ -->
+<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
-  <div class="topo-textura"></div>
   <div class="container hero-content">
-    <span class="coord">64.9631° N, 19.0208° W — próxima salida: islandia</span>
-    <h1>Preferimos el barro al asfalto, y las cumbres a las salas de espera.</h1>
-    <p>Diseñamos y guiamos expediciones de aventura en grupo por los rincones más salvajes del planeta —desde trekkings por Islandia hasta travesías en los Alpes— y equipamos tu viaje con material probado en condiciones extremas.</p>
+    <span class="marcador-label">Clases + tienda técnica</span>
+    <h1>El pádel se aprende <em>en pista</em>, no viendo vídeos.</h1>
+    <p>Clases para todos los niveles con entrenadores certificados, y una tienda técnica con las palas, pelotas y zapatillas que usan nuestros propios profesores.</p>
     <div class="hero-actions">
-  <div class="hero-buttons">
-    <a href="registro.html" class="btn btn-primario">Reserva tu expedición</a>
-    <a href="#tienda" class="btn btn-secundario">Ver equipo técnico</a>
+      <a href="registro.html" class="btn btn-primario">Reserva tu clase</a>
+      <a href="#tienda" class="btn btn-secundario">Ver tienda</a>
+    </div>
   </div>
-  <a href="#historia" class="enlace-descubre">Descubre más ↓</a>
-</div>
-
-  </div>
-  <div class="permiso-flotante">
-    <span class="coord">Permiso Nº 0426</span>
+  <div class="scoreboard-flotante">
+    <span class="marcador-label">Próxima clase</span>
     <ul>
-      <li><span>Guías activos</span><strong>12</strong></li>
-      <li><span>Expediciones/año</span><strong>24</strong></li>
-      <li><span>Grupo máx.</span><strong>8 pax</strong></li>
-      <li><span>Fundada</span><strong>2014</strong></li>
+      <li><span>Nivel</span><strong>Iniciación</strong></li>
+      <li><span>Horario</span><strong>Mañana 18:00</strong></li>
+      <li><span>Plazas libres</span><strong>4</strong></li>
+      <li><span>Sede</span><strong>Pista Central</strong></li>
     </ul>
+  </div>
+</section>
+
+<!-- ============ BANDA DE ESTADÍSTICAS ============ -->
+<section class="stats-banda" style="padding-top:50px; padding-bottom:50px;">
+  <div class="container stats-grid">
+    <div><strong>14</strong><span>Años de club</span></div>
+    <div><strong>32</strong><span>Coaches certificados</span></div>
+    <div><strong>6</strong><span>Sedes</span></div>
+    <div><strong>4.9</strong><span>★ Valoración media</span></div>
   </div>
 </section>
 
@@ -120,30 +457,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="beneficios">
   <div class="container">
     <div class="section-cabecera reveal">
-      <span class="coord">Ficha técnica del equipo</span>
-      <h2>Tu aventura, sin dejar nada al azar</h2>
-      <p>No te dejamos ir solo. Cada expedición y cada pieza de equipo pasan por el mismo filtro: lo que usarían nuestros propios guías.</p>
+      <span class="marcador-label">Por qué Smash</span>
+      <h2>Tu nivel, sin dejarlo al azar</h2>
+      <p>Grupos reducidos por nivel real, entrenadores certificados por la Federación y el mismo material que usan ellos en pista.</p>
     </div>
     <div class="beneficios-grid">
       <div class="beneficio-card reveal">
-        <div class="beneficio-icono">🧭</div>
-        <h3>Guías expertos</h3>
-        <p>Profesionales con años de experiencia en terreno real, no en folletos.</p>
+        <div class="beneficio-icono">🎾</div>
+        <h3>Coaches certificados</h3>
+        <p>Titulados por la Federación, con experiencia en competición.</p>
       </div>
       <div class="beneficio-card reveal">
-        <div class="beneficio-icono">🎒</div>
-        <h3>Equipo probado</h3>
-        <p>Material técnico validado en condiciones extremas por nuestros guías.</p>
+        <div class="beneficio-icono">📊</div>
+        <h3>Grupos por nivel real</h3>
+        <p>Test de nivel gratuito antes de tu primera clase, nada de grupos al azar.</p>
       </div>
       <div class="beneficio-card reveal">
-        <div class="beneficio-icono">👥</div>
-        <h3>Grupos reducidos</h3>
-        <p>Expediciones pensadas para vivirse de cerca, no en masa.</p>
+        <div class="beneficio-icono">🏆</div>
+        <h3>Material profesional</h3>
+        <p>Palas y pelotas de torneo disponibles para practicar desde el primer día.</p>
       </div>
       <div class="beneficio-card reveal">
-        <div class="beneficio-icono">🏔️</div>
-        <h3>Destinos únicos</h3>
-        <p>De Islandia a los Alpes: rutas alejadas del turismo convencional.</p>
+        <div class="beneficio-icono">📍</div>
+        <h3>6 sedes panorámicas</h3>
+        <p>Pistas panorámicas cubiertas y al aire libre según la temporada.</p>
       </div>
     </div>
   </div>
@@ -153,40 +490,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="sobre" class="section-oscura">
   <div class="container sobre">
     <div class="sobre-img reveal">
-      <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=900&q=80" alt="Cordillera de montañas entre nubes al amanecer" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1646649851800-48dba35edc76?auto=format&fit=crop&w=900&q=80" alt="Jugadores de pádel en plena acción en pista" loading="lazy">
     </div>
     <div class="sobre-texto reveal">
-      <span class="coord">Cuaderno de bitácora</span>
-      <h2>Tu aventura empieza aquí</h2>
-      <p>Nacimos para los que prefieren el barro al asfalto y las cumbres a las salas de espera. En Wanderlust Outdoors diseñamos y guiamos expediciones de aventura en grupo por los rincones más salvajes del planeta —desde trekkings por Islandia hasta travesías en los Alpes—.</p>
-      <p>Pero no te dejamos ir solo: en nuestra tienda técnica equipamos tu viaje con el material más resistente, probado en condiciones extremas por nuestros propios guías. Ya sea que busques reservar tu próxima expedición o el saco de dormir perfecto para tu siguiente escapada, tu aventura empieza aquí.</p>
+      <span class="marcador-label">Sobre Smash Padel Club</span>
+      <h2>Tu mejora empieza en pista</h2>
+      <p>Creemos que el pádel se aprende jugando, no viendo vídeos. Diseñamos programas de clases para todos los niveles —desde tu primera pala hasta tu primer torneo— guiados por entrenadores certificados por la Federación.</p>
+      <p>Y cuando estés listo para subir de nivel, nuestra tienda técnica te equipa con las palas, pelotas y zapatillas que usan nuestros propios profesores en pista. Ya sea que quieras reservar tu primera clase o encontrar la pala perfecta para tu juego, tu mejora empieza aquí.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ DESTINOS / EXPEDICIONES (LEAD GEN) ============ -->
-<section id="destinos">
+<!-- ============ CLASES (LEAD GEN) ============ -->
+<section id="clases">
   <div class="container">
     <div class="section-cabecera reveal">
-      <span class="coord">Rutas activas 2026</span>
-      <h2>Elige tu próxima ruta</h2>
-      <p>Grupos reducidos, guías locales y logística resuelta. Tú solo tienes que aparecer con las botas puestas.</p>
+      <span class="marcador-label">Programas 2026</span>
+      <h2>Elige tu nivel</h2>
+      <p>Test de nivel gratuito antes de apuntarte. Grupos reducidos, máximo 4 jugadores por pista.</p>
     </div>
-    <div class="destinos-grid">
-      <div class="destino-card reveal" onclick="window.location.href='registro.html?destino=islandia'">
-        <img src="https://images.unsplash.com/photo-1504829857797-ddff29c27927?auto=format&fit=crop&w=900&q=80" alt="Cascada y paisaje volcánico de Islandia" loading="lazy">
-        <div class="destino-overlay">
-          <span class="coord">10 días · dificultad media · 1.290 €</span>
-          <h3>Trekking Islandia</h3>
-          <p>Glaciares, cascadas y tierras volcánicas. Desde 1.290 €</p>
+    <div class="clases-grid">
+      <div class="clase-card reveal" onclick="window.location.href='registro.html?interes=iniciacion'">
+        <img src="https://images.unsplash.com/photo-1646649853703-7645147474ba?auto=format&fit=crop&w=700&q=80" alt="Pista de pádel vista desde arriba" loading="lazy">
+        <div class="clase-overlay">
+          <span class="nivel-badge">Iniciación</span>
+          <h3>Primeros pasos</h3>
+          <p>8 sesiones · Grupos de 4 · Desde 89 €/mes</p>
         </div>
       </div>
-      <div class="destino-card reveal" onclick="window.location.href='registro.html?destino=alpes'">
-        <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=900&q=80" alt="Cordillera nevada de los Alpes" loading="lazy">
-        <div class="destino-overlay">
-          <span class="coord">7 días · dificultad alta · 1.590 €</span>
-          <h3>Travesía por los Alpes</h3>
-          <p>Alta montaña y refugios de altura. Desde 1.590 €</p>
+      <div class="clase-card reveal" onclick="window.location.href='registro.html?interes=intermedio'">
+        <img src="https://images.unsplash.com/photo-1646651105454-6c167ea6f83b?auto=format&fit=crop&w=700&q=80" alt="Jugador de pádel golpeando la pelota" loading="lazy">
+        <div class="clase-overlay">
+          <span class="nivel-badge">Intermedio</span>
+          <h3>Táctica y consistencia</h3>
+          <p>8 sesiones · Grupos de 4 · Desde 109 €/mes</p>
+        </div>
+      </div>
+      <div class="clase-card reveal" onclick="window.location.href='registro.html?interes=avanzado'">
+        <img src="https://images.unsplash.com/photo-1646649852046-b758d2d573f3?auto=format&fit=crop&w=700&q=80" alt="Partido de pádel a nivel competitivo" loading="lazy">
+        <div class="clase-overlay">
+          <span class="nivel-badge">Avanzado</span>
+          <h3>Preparación torneos</h3>
+          <p>8 sesiones · Grupos de 4 · Desde 129 €/mes</p>
         </div>
       </div>
     </div>
@@ -197,47 +542,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="tienda" class="section-oscura">
   <div class="container">
     <div class="section-cabecera reveal">
-      <span class="coord">Almacén de campaña</span>
-      <h2>Equipo probado en condiciones extremas</h2>
-      <p>El mismo material que usan nuestros guías, listo para tu próxima escapada.</p>
+      <span class="marcador-label">Tienda técnica</span>
+      <h2>El material que usan nuestros coaches</h2>
+      <p>Palas, pelotas y calzado técnico probado por nuestros propios entrenadores.</p>
     </div>
     <div class="tienda-grid">
       <div class="producto-card reveal">
         <div class="producto-img">
-          <img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=700&q=80" alt="Mochila técnica de senderismo" loading="lazy">
+          <span class="producto-tag">Más vendida</span>
+          <img src="https://images.unsplash.com/photo-1526888935184-a82d2a4b7e67?auto=format&fit=crop&w=600&q=80" alt="Pala de pádel de gama profesional" loading="lazy">
         </div>
         <div class="producto-info">
-          <span class="coord">Ref. WO-BP45</span>
-          <h3>Mochila técnica 45L</h3>
+          <span class="marcador-label">Ref. SPC-PL01</span>
+          <h3>Pala Pro Carbon</h3>
           <div class="producto-precio">
-            <strong>139 €</strong>
-            <a class="btn btn-primario" href="registro.html?item=Mochila%20t%C3%A9cnica%2045L&valor=139&tipo=producto">Comprar</a>
+            <strong>179 €</strong>
+            <a class="btn btn-primario" href="registro.html?item=Pala%20Pro%20Carbon&valor=179&tipo=producto">Comprar</a>
           </div>
         </div>
       </div>
       <div class="producto-card reveal">
         <div class="producto-img">
-          <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=700&q=80" alt="Tienda de campaña bajo un cielo estrellado" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1574379989050-bfd9e1a8a543?auto=format&fit=crop&w=600&q=80" alt="Pelotas de pádel nuevas" loading="lazy">
         </div>
         <div class="producto-info">
-          <span class="coord">Ref. WO-TT02</span>
-          <h3>Tienda 2 estaciones</h3>
+          <span class="marcador-label">Ref. SPC-BL03</span>
+          <h3>Pack 3 pelotas torneo</h3>
           <div class="producto-precio">
-            <strong>219 €</strong>
-            <a class="btn btn-primario" href="registro.html?item=Tienda%202%20estaciones&valor=219&tipo=producto">Comprar</a>
+            <strong>9 €</strong>
+            <a class="btn btn-primario" href="registro.html?item=Pack%203%20pelotas%20torneo&valor=9&tipo=producto">Comprar</a>
           </div>
         </div>
       </div>
       <div class="producto-card reveal">
         <div class="producto-img">
-          <img src="https://images.unsplash.com/photo-1517824806704-9040b037703b?auto=format&fit=crop&w=700&q=80" alt="Saco de dormir y equipo de montaña" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1613870930431-a09c7139eb33?auto=format&fit=crop&w=600&q=80" alt="Zapatillas técnicas de pádel" loading="lazy">
         </div>
         <div class="producto-info">
-          <span class="coord">Ref. WO-SB15</span>
-          <h3>Saco de dormir -15°C</h3>
+          <span class="marcador-label">Ref. SPC-SH12</span>
+          <h3>Zapatillas Grip Pro</h3>
           <div class="producto-precio">
-            <strong>159 €</strong>
-            <a class="btn btn-primario" href="registro.html?item=Saco%20de%20dormir%20-15%C2%B0C&valor=159&tipo=producto">Comprar</a>
+            <strong>99 €</strong>
+            <a class="btn btn-primario" href="registro.html?item=Zapatillas%20Grip%20Pro&valor=99&tipo=producto">Comprar</a>
+          </div>
+        </div>
+      </div>
+      <div class="producto-card reveal">
+        <div class="producto-img">
+          <img src="https://images.unsplash.com/photo-1646649853517-e2f75cde1908?auto=format&fit=crop&w=600&q=80" alt="Paletero deportivo para pala de pádel" loading="lazy">
+        </div>
+        <div class="producto-info">
+          <span class="marcador-label">Ref. SPC-BG07</span>
+          <h3>Paletero Team</h3>
+          <div class="producto-precio">
+            <strong>59 €</strong>
+            <a class="btn btn-primario" href="registro.html?item=Paletero%20Team&valor=59&tipo=producto">Comprar</a>
           </div>
         </div>
       </div>
@@ -248,8 +607,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============ CTA FINAL ============ -->
 <section class="cta-banda">
   <div class="container">
-    <h2 class="reveal">¿Listo para tu próxima aventura?</h2>
-    <p class="reveal">Reserva una expedición o equípate para la tuya. Empieza en menos de dos minutos.</p>
+    <h2 class="reveal">¿Empezamos a jugar?</h2>
+    <p class="reveal">Reserva tu test de nivel gratuito o equípate para tu próximo partido.</p>
     <a href="registro.html" class="btn btn-oscuro reveal">Empezar ahora</a>
   </div>
 </section>
@@ -258,13 +617,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="logo">Wanderlust <span>Outdoors</span></div>
-        <p style="margin-top:14px; font-size:0.88rem; max-width:280px;">Expediciones de aventura y equipo técnico de montaña para quienes prefieren el barro al asfalto.</p>
+        <div class="logo">Smash <span>Padel Club</span></div>
+        <p style="margin-top:14px; font-size:0.88rem; max-width:280px; color:#cdd3da;">Clases de pádel para todos los niveles y tienda técnica con el material de nuestros coaches.</p>
       </div>
       <div>
         <h4>Explorar</h4>
         <ul>
-          <li><a href="#destinos">Expediciones</a></li>
+          <li><a href="#clases">Clases</a></li>
           <li><a href="#tienda">Tienda</a></li>
           <li><a href="#sobre">Sobre nosotros</a></li>
         </ul>
@@ -286,12 +645,192 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Wanderlust Outdoors. Todos los derechos reservados.</span>
+      <span>© 2026 Smash Padel Club. Todos los derechos reservados.</span>
       <span>Sitio de demostración con fines formativos.</span>
     </div>
   </div>
 </footer>
 
-<script src="script.js?v=20260803"></script>
+<script>
+/* ==========================================================================
+   SMASH PADEL CLUB — script.js
+   Funciones de UI + disparo de eventos al dataLayer (para GTM/GA4/Ads/
+   Meta Pixel/TikTok Pixel).
+   ========================================================================== */
+
+window.dataLayer = window.dataLayer || [];
+
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav-links");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("abierto");
+    });
+  }
+
+  const reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+    reveals.forEach((el) => observer.observe(el));
+    setTimeout(() => reveals.forEach((el) => el.classList.add("visible")), 4000);
+  } else {
+    reveals.forEach((el) => el.classList.add("visible"));
+  }
+});
+
+/* ==========================================================================
+   FORMULARIO DE REGISTRO (registro.html) — captura de LEAD
+   ========================================================================== */
+function manejarRegistro(event) {
+  event.preventDefault();
+  const form = event.target;
+
+  const datosLead = {
+    nombre: form.nombre.value,
+    email: form.email.value,
+    telefono: form.telefono.value,
+    interes: form.interes.value,
+  };
+
+  sessionStorage.setItem("padel_lead", JSON.stringify(datosLead));
+
+  // EVENTO DE MARKETING: "generate_lead"
+  window.dataLayer.push({
+    event: "generate_lead",
+    lead_source: "formulario_registro",
+    lead_interes: datosLead.interes,
+  });
+
+  const item = sessionStorage.getItem("padel_item");
+  const valor = sessionStorage.getItem("padel_valor");
+  const tipo = sessionStorage.getItem("padel_tipo");
+
+  let destinoUrl = "checkout.html";
+  if (item) {
+    destinoUrl += "?item=" + encodeURIComponent(item) +
+      "&valor=" + encodeURIComponent(valor || "0") +
+      "&tipo=" + encodeURIComponent(tipo || "producto");
+  } else {
+    const precios = { iniciacion: 89, intermedio: 109, avanzado: 129, infantil: 69 };
+    const precio = precios[datosLead.interes] || 0;
+    destinoUrl += "?item=" + encodeURIComponent("Clases: " + (datosLead.interes || "pádel")) +
+      "&valor=" + precio + "&tipo=clase";
+  }
+
+  window.location.href = destinoUrl;
+}
+
+/* ==========================================================================
+   CHECKOUT (checkout.html) — simulación de pago
+   ========================================================================== */
+function manejarCheckout(event) {
+  event.preventDefault();
+  const form = event.target;
+
+  const params = new URLSearchParams(window.location.search);
+  const tipo = params.get("tipo") || "producto";
+  const valor = params.get("valor") || "0";
+  const item = params.get("item") || "Pedido Smash Padel Club";
+
+  window.dataLayer.push({
+    event: "add_payment_info",
+    ecommerce: {
+      currency: "EUR",
+      value: parseFloat(valor),
+      items: [{ item_name: item }],
+    },
+  });
+
+  const boton = form.querySelector("button[type='submit']");
+  boton.disabled = true;
+  boton.textContent = "Procesando pago…";
+
+  setTimeout(function () {
+    window.location.href =
+      "gracias.html?tipo=" + encodeURIComponent(tipo) +
+      "&valor=" + encodeURIComponent(valor) +
+      "&item=" + encodeURIComponent(item);
+  }, 1200);
+}
+
+/* ==========================================================================
+   PÁGINA DE GRACIAS (gracias.html) — dispara la conversión "purchase"
+   ========================================================================== */
+function inicializarGracias() {
+  const params = new URLSearchParams(window.location.search);
+  const tipo = params.get("tipo") || "producto";
+  const valor = parseFloat(params.get("valor") || "0");
+  const item = params.get("item") || "Pedido Smash Padel Club";
+  const idTransaccion = "SPC-" + Date.now();
+
+  let lead = {};
+  try {
+    lead = JSON.parse(sessionStorage.getItem("padel_lead") || "{}");
+  } catch (e) {
+    lead = {};
+  }
+
+  const elNombre = document.getElementById("gracias-nombre");
+  const elItem = document.getElementById("gracias-item");
+  const elValor = document.getElementById("gracias-valor");
+  const elId = document.getElementById("gracias-id");
+  if (elNombre) elNombre.textContent = lead.nombre || "jugador/a";
+  if (elItem) elItem.textContent = item;
+  if (elValor) elValor.textContent = valor.toFixed(2) + " €";
+  if (elId) elId.textContent = idTransaccion;
+
+  // EVENTO DE MARKETING PRINCIPAL: "purchase"
+  window.dataLayer.push({
+    event: "purchase",
+    ecommerce: {
+      transaction_id: idTransaccion,
+      currency: "EUR",
+      value: valor,
+      items: [{ item_name: item, item_category: tipo }],
+    },
+  });
+}
+
+</script>
+
+   <script>
+    window.dataLayer = window.dataLayer || [];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var buyButtons = document.querySelectorAll('a[href*="tipo=producto"]');
+      
+      buyButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var urlParams = new URLSearchParams(button.getAttribute('href').split('?')[1]);
+          var itemName = urlParams.get('item');
+          var itemPrice = parseFloat(urlParams.get('valor')) || 0;
+
+          window.dataLayer.push({
+            'event': 'add_to_cart',
+            'ecommerce': {
+              'currency': 'EUR',
+              'value': itemPrice,
+              'items': [{
+                'item_name': itemName,
+                'price': itemPrice,
+                'quantity': 1
+              }]
+            }
+          });
+        });
+      });
+    
+  </script>
 </body>
 </html>
