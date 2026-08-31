@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu carrito — Wanderlust Outdoors</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20260901">
+
+<!-- GTM, Meta Pixel y TikTok Pixel: MISMO bloque que en index.html, pégalo aquí también -->
+<!-- INICIO: Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NR5W39VM');</script>
+<!-- FIN: Google Tag Manager -->
+<!-- INICIO: Meta Pixel Code --><!-- (igual que en index.html) --><!-- FIN: Meta Pixel Code -->
+<!-- INICIO: TikTok Pixel Code --><!-- (igual que en index.html) --><!-- FIN: TikTok Pixel Code -->
+
+</head>
+<body>
+<!-- GTM noscript: mismo bloque que en index.html, justo aquí -->
+<!-- INICIO: Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NR5W39VM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- FIN: Google Tag Manager (noscript) -->
+
+<header class="site-header solido">
+  <div class="container">
+    <a href="index.html" class="logo">Wanderlust <span>Outdoors</span></a>
+    <nav><ul class="nav-links"></ul></nav>
+    <div class="nav-cta"></div>
+  </div>
+</header>
+
+<section class="pagina-interna-hero"><div class="topo-textura"></div>
+  <div class="container">
+    <span class="coord">Tu equipaje / antes del registro</span>
+    <h1>Tu carrito</h1>
+    <p>Revisa tus artículos antes de continuar con la reserva.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="carrito-layout">
+
+    <div id="carrito-vacio" class="carrito-vacio">
+      <div class="carrito-vacio-icono">🎒</div>
+      <h2>Tu carrito está vacío</h2>
+      <p>Añade una expedición o algo de equipo técnico antes de continuar.</p>
+      <a href="index.html#tienda" class="btn btn-primario">Ver equipo técnico</a>
+    </div>
+
+    <div id="carrito-resumen" style="display:none;">
+      <div class="carrito-caja">
+        <div id="carrito-lista"></div>
+      </div>
+      <div class="carrito-resumen-total">
+        <span>Total</span>
+        <strong id="carrito-total">0,00 €</strong>
+      </div>
+      <div class="carrito-acciones">
+        <a href="index.html#tienda" class="btn btn-secundario-claro">Seguir explorando</a>
+        <a href="registro.html" class="btn btn-primario">Continuar al registro</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer" style="margin-top:80px;">
+  <div class="container footer-bottom">
+    <span>© 2026 Wanderlust Outdoors.</span>
+    <span>Sitio de demostración con fines formativos.</span>
+  </div>
+</footer>
+
+<script src="script.js?v=20260901"></script>
+<script>
+  // Pinta las líneas del carrito y dispara el evento view_cart
+  // (la función renderizarCarrito() vive en js/script.js)
+  renderizarCarrito();
+</script>
+</body>
+</html>
